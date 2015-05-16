@@ -4,7 +4,6 @@ body {
 
 h1 {
   color: #4E4F4D;
-  display: inline-block;
   font-family: 'PT Sans', sans-serif;
   font-size: 64px;
   margin: 0 40px 0 0;
@@ -12,17 +11,34 @@ h1 {
 
 h2 {
   color: #4E4F4D;
-  display: inline-block;
   font-family: 'PT Sans', sans-serif;
   font-size: 32px;
 }
 
 a {
-  position: absolute;
   color: #4E4F4D;
   font-family: 'PT Sans', sans-serif;
   text-decoration: none;
-  bottom: 50px;
+}
+
+a.highlight {
+  display: inline-block;
+  border-bottom: 1px solid #63CD96;
+  margin-bottom: 10px;
+}
+
+a:hover {
+  color: #63CD96;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin: 4px 0;
 }
 
 .pure-button-primary {

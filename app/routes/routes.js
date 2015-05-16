@@ -1,6 +1,7 @@
 'use strict';
 
 var debug   = require('debug')('app:routes:routes');
+var fs      = require('fs');
 var glob    = require('glob');
 var path    = require('path');
 var express = require('express');
@@ -9,8 +10,19 @@ var router  = express.Router();
 var appConfig = require('../config/app');
 var sendFileConfig = require('../config/sendFile');
 
-router.get('/', function(req, res) {
-  res.render('index');
+router.get('/', function(req, res, next) {
+  fs.readdir(appConfig.uploadPath, function(err, files){
+    if(err) {
+      debug(err);
+      return next(err);
+    }
+
+    files = files.map(function(file) {
+      return file.toLowerCase();
+    });
+
+    res.render('index', { files: files });
+  });
 });
 
 router.get(/^\/.{4}((\.\w{2,4})|$)/, function(req, res, next) {
