@@ -1,0 +1,9 @@
+{
+  "apps": [{
+    "name": "nannin.ga",
+    "script": "app/bin/www",
+    "env": {
+      "PORT": 80
+    }
+  }]
+}
