@@ -17,9 +17,12 @@ router.get('/', function(req, res, next) {
       return next(err);
     }
 
-    files = files.map(function(file) {
-      return file.toLowerCase();
-    });
+    files = files
+      .map(function(v) { return { name: v, time:fs.statSync(appConfig.uploadPath + '/' + v).mtime.getTime() }; })
+      .sort(function(a, b) { return b.time - a.time; })
+      .map(function(v) { return v.name.toLowerCase(); });
+
+    debug(files);
 
     res.render('index', { files: files });
   });
