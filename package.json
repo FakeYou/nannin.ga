@@ -1,0 +1,38 @@
+{
+  "name": "nannin.ga",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FakeYou/nannin.ga.git"
+  },
+  "author": "Andre Nanninga <andre@nannin.ga>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FakeYou/nannin.ga/issues"
+  },
+  "homepage": "https://github.com/FakeYou/nannin.ga",
+  "dependencies": {
+    "bcrypt": "^0.8.3",
+    "body-parser": "~1.12.0",
+    "chance": "^0.7.5",
+    "cookie-parser": "~1.3.4",
+    "debug": "~2.1.1",
+    "express": "~4.12.2",
+    "express-session": "^1.11.2",
+    "glob": "^5.0.6",
+    "hbs": "~2.9.0",
+    "morgan": "~1.5.1",
+    "multer": "^0.1.8",
+    "nedb": "^1.1.2",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.2.0",
+    "universal-analytics": "^0.3.6"
+  }
+}

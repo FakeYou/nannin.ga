@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Takeoff</title>
+    <meta charset="UTF-8">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      canvas {
+        display: block;
+        margin: 0 auto;
+      }
+
+      #keys {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+      }
+
+      .key {
+        width: 30px;
+        height: 26px;
+        background-color: #DDD;
+        border: 2px solid #AAA;
+        border-radius: 2px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        color: #555;
+        padding: 4px 0 0 0;
+      }
+
+      .key.highlight {
+        border-color: #FE3465;
+        box-shadow: 0 0 8px 0 rgba(100, 100, 100, 0.8);
+      }
+
+      .key#up {
+        position: absolute;
+        left: 50%;
+        margin-left: -15px;
+      }
+
+      .key#left {
+        height: 30px;
+        padding: 0;
+
+        position: absolute;
+        left: 50%;
+        top: 45px;
+        margin-left: -60px;
+      }
+
+      .key#right {
+        height: 30px;
+        padding: 0;
+
+        position: absolute;
+        left: 50%;
+        top: 45px;
+        margin-left: 30px;
+      }
+
+      .key#down {
+        position: absolute;
+        left: 50%;
+        top: 90px;
+        margin-left: -15px;
+      }
+
+      #score {
+        position: absolute;
+        width: 100%;
+
+        top: 180px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: #FFF;
+        font-size: 30px;
+      }
+
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #666;
+        text-align: center;
+      }
+
+      img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="keys">
+      <div class="key highlight" id="up">▲</div>
+      <div class="key" id="left">◀</div>
+      <div class="key" id="down">▼</div>
+      <div class="key" id="right">▶</div>
+    </div>
+
+    <div id="score">80</div>
+
+    <canvas id="canvas" width="800" height="800"></canvas>
+
+    <h1>
+      Press the arrow keys in a circle to takeoff
+      <br>
+      <small>Set a high score by going as high as possible</small>
+    </h1>
+
+
+    <img id="helicopter" src="helicopter.png">
+
+    <script src="index.js"></script>
+  </body>
+</html>
