@@ -22,9 +22,6 @@ router.post('/', [ multer(multerConfig), function(req, res) {
     return res.redirect('/login');
   }
 
-  debug(req.body);
-  debug(req.files);
-
   var filename = req.files.file.name;
   res.redirect('/' + filename);
 }]);
