@@ -3,6 +3,7 @@
     "name": "nannin.ga",
     "script": "app/bin/www",
     "env": {
+      "NODE_ENV": "production",
       "PORT": 9000
     }
   }]
