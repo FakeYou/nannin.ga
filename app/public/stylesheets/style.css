@@ -7,6 +7,7 @@ h1 {
   font-family: 'PT Sans', sans-serif;
   font-size: 64px;
   margin: 0 0 20px 0;
+  line-height: 1.2;
 }
 
 h2 {
@@ -43,6 +44,17 @@ ul li {
 
 .pure-button-primary {
   background-color: #4E4F4D;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 4px 0;
+  margin: 0 20px 0 0;
 }
 
 @media (max-width:500px){
