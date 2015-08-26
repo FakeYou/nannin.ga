@@ -40,6 +40,19 @@ ul {
 
 ul li {
   margin: 10px 0;
+  position: relative;
+}
+
+ul li .views {
+  position: absolute;
+  font-family: 'PT Sans', sans-serif;
+  text-align: right;
+  color: #63CD96;
+  font-size: 12px;
+  padding: 4px 20px;
+  margin-left: -130px;
+  display: inline-block;
+  width: 100px;
 }
 
 .pure-button-primary {

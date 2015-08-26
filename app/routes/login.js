@@ -10,7 +10,6 @@ var router        = express.Router();
 var secrets = require('../../secrets');
 var passportConfig = require('../config/passport');
 
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
     var valid = bcrypt.compareSync(password, secrets.uploadPassword);

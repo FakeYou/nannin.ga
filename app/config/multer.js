@@ -1,7 +1,8 @@
 'use strict';
 
-var chance    = require('chance').Chance();
-var appConfig = require('./app');
+var debug      = require('debug')('app:config:multer');
+var chance     = require('chance').Chance();
+var appConfig  = require('./app');
 
 var config = {
   dest: appConfig.uploadPath,

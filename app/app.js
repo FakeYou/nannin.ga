@@ -1,5 +1,3 @@
-'use strict';
-
 var debug        = require('debug')('app');
 var express      = require('express');
 var path         = require('path');
@@ -11,6 +9,9 @@ var compression  = require('compression');
 var passport     = require('passport');
 var session      = require('express-session');
 var ua           = require('universal-analytics');
+var nedb         = require('nedb');
+
+var nedbConfig   = require('./config/nedb');
 
 var secrets      = require('../secrets');
 
@@ -18,12 +19,17 @@ var routes       = require('./routes/routes');
 var upload       = require('./routes/upload');
 var login        = require('./routes/login');
 
-var app     = express();
-var visitor = ua(secrets.googleAnalyticsID);
+var visitor      = ua(secrets.googleAnalyticsID, { cookieName: '_ga' });
+var db           = new nedb(nedbConfig);
+
+db.persistence.setAutocompactionInterval(15 * 60 * 1000);
+
+app = module.exports = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('db', db);
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -87,5 +93,3 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-module.exports = app;

@@ -29,3 +29,4 @@ node_modules
 secrets.json
 
 app/uploads
+app/db
