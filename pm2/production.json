@@ -2,6 +2,8 @@
   "apps": [{
     "name": "nannin.ga",
     "script": "app/bin/www",
+    "watch": ["app"],
+    "ignore_watch": ["uploads"],
     "env": {
       "NODE_ENV": "production",
       "PORT": 9000
