@@ -59,6 +59,10 @@ ul li .views {
   background-color: #4E4F4D;
 }
 
+.image-field {
+  padding: 0 0 40px 0;
+}
+
 .container {
   max-width: 700px;
   margin: 0 auto;

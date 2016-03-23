@@ -16,7 +16,13 @@ router.get('/', function(req, res, next) {
 
   debug(req.isAuthenticated());
 
-  db.find({}).sort({ uploadedAt: -1 }).exec(function(err, docs) {
+  var query = {};
+
+  if(!req.isAuthenticated()) {
+    query.private = false;
+  }
+
+  db.find(query).sort({ uploadedAt: -1 }).exec(function(err, docs) {
     if(err) { 
       debug(err);
       return next(err);
