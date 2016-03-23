@@ -11,27 +11,27 @@ var appConfig = require('../config/app');
 var sendFileConfig = require('../config/sendFile');
 
 router.get('/', function(req, res, next) {
-
   var db = app.get('db');
-
-  debug(req.isAuthenticated());
-
   var query = {};
-
   if(!req.isAuthenticated()) {
-    query.private = false;
+    query.private = { $ne: true };
   }
 
   db.find(query).sort({ uploadedAt: -1 }).exec(function(err, docs) {
+    debug(docs);
+
     if(err) { 
       debug(err);
       return next(err);
     }
 
     var files = docs.map(function(doc) {
+      var hidden = (doc.private !== undefined) ? doc.private : false;
+
       return {
         name: doc.fileName,
-        views: doc.views
+        views: doc.views,
+        private: hidden
       }
     });
 
@@ -43,6 +43,33 @@ router.get('/', function(req, res, next) {
     });
   });
 });
+
+router.get('/make-public/:name', function(req, res, next) {
+  if(!req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+
+  var db = app.get('db');
+  var name = req.params.name;
+
+  db.update({ fileName: name }, { $set: { private: false }});
+
+  res.redirect('/');
+});
+
+router.get('/make-private/:name', function(req, res, next) {
+  if(!req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+
+  var db = app.get('db');
+  var name = req.params.name;
+
+  db.update({ fileName: name }, { $set: { private: true }});
+
+  res.redirect('/');
+});
+
 
 router.get(/^\/.{4}((\.\w{2,4})|$)/, function(req, res, next) {
   var name = path.parse(req.url).name;
