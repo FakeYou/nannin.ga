@@ -1,8 +1,14 @@
-<form class="pure-form" method="POST" action="upload" enctype="multipart/form-data">
-  <input name="file" type="file">
+<form class="pure-form pure-form-stacked" method="POST" action="upload" enctype="multipart/form-data">
+	<p class="image-field">
+		<input name="file" type="file">
+		<small>or paste an image</small>
+	</p>
 
-  <button type="submit" class="pure-button pure-button-primary">Upload</button>
+	<label for="private">
+		<input id="private" type="checkbox" name="private"> Private
+	</label>
+
+	<button type="submit" class="pure-button pure-button-primary">Upload</button>
 </form>
-<small>or paste an image</small>
 
 <script src="javascripts/upload.js"></script>

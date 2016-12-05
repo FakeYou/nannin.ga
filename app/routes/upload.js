@@ -30,13 +30,13 @@ router.post('/', [ multer(multerConfig), function(req, res) {
   }
 
   var db = app.get('db');
-  debug(req.files.file);
   
   var doc = {
     originalName: req.files.file.originalname,
     fileName: req.files.file.name,
     uploadedAt: new Date(),
     ipAddress: req.connection.remoteAddress,
+    private: !!req.body.private,
     views: 0
   };
   

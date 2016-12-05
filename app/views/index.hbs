@@ -1,15 +1,23 @@
 <nav>
-	<ul>
-		<li><a class="highlight" href="http://andrenanninga.com">andrenanninga.com</a></li>
-		<li><a class="highlight" href="/upload">upload</a></li>
-	</ul>
+  <ul>
+    <li><a class="highlight" href="https://andrenanninga.com">andrenanninga.com</a></li>
+    <li><a class="highlight" href="/upload">upload</a></li>
+  </ul>
 </nav>
 <ul class="files">
   {{#each files}}
     <li>
-    	{{#if ../isAuthenticated}}
-    		<span class="views">{{views}}</span>
-    	{{/if}}
+      {{#if ../isAuthenticated}}
+        <span class="views">
+          {{views}}
+
+          {{#if private}}
+            <a href="/make-public/{{name}}">🔓</a>
+          {{else}}
+            <a href="/make-private/{{name}}">🔒</a>
+          {{/if}}
+        </span>
+      {{/if}}
       <a href="{{name}}">{{name}}</a>
     </li>
   {{/each}}
